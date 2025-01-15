@@ -1,0 +1,56 @@
+<h3>Listar Produtos</h3>
+
+<!-- Tabela para listar produtos -->
+<table border="1">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Preço</th>
+      <th>Descricao</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let produto of produtos$ | async">
+      <td>{{produto.nome}}</td>
+      <td>{{produto.preco | number:'1.2-2'}}</td>  <!-- Formatação de preço -->
+      <td>{{produto.descricao}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Adicionar Produto</h3>
+
+<!-- Formulário para adicionar produto -->
+<div>
+  <label for="nomeAdicionar">Nome:</label>
+  <input
+    id="nomeAdicionar"
+    type="text"
+    [(ngModel)]="nomeAdicionar"
+    placeholder="Nome do produto"
+  />
+</div>
+
+<div>
+  <label for="precoAdicionar">Preço:</label>
+  <input
+    id="precoAdicionar"
+    type="number"
+    [(ngModel)]="precoAdicionar"
+    placeholder="Preço do produto"
+  />
+</div>
+
+<div>
+  <label for="descAdicionar">Descricao:</label>
+  <input
+    id="descAdicionar"
+    type="text"
+    [(ngModel)]="descAdicionar"
+    placeholder="Descricao do produto"
+  />
+</div>
+
+<div>
+  <button (click)="adicionarProduto()">Adicionar Produto</button>
+</div>
